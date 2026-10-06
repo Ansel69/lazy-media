@@ -12,6 +12,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// Site identity: one place so a fresh database matches the published brand.
+update_option( 'blogname', 'Ark Media' );
+update_option( 'blogdescription', 'Media Kreatif Indonesia' );
+echo "site: Ark Media - Media Kreatif Indonesia\n";
+
 /**
  * Create a category if its slug is missing, then return the term.
  *
@@ -230,14 +235,15 @@ lm_seed_menu(
 	'primary'
 );
 
+// The footer "Kategori" column already lists categories by post count, so the
+// "Informasi" menu holds static pages instead. Kontak is appended by
+// footer.php itself.
 lm_seed_menu(
 	'Menu Footer',
 	'menu-footer',
 	array(
-		array( 'category', 'games', 'Games' ),
-		array( 'category', 'tech', 'Tech' ),
-		array( 'category', 'entertainment', 'Entertainment' ),
-		array( 'category', 'hobby', 'Hobby' ),
+		array( 'url', home_url( '/about/' ), 'About' ),
+		array( 'url', home_url( '/privacy-policy/' ), 'Privacy Policy' ),
 	),
 	'footer'
 );

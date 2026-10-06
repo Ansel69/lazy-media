@@ -98,7 +98,7 @@ $lazy_sections = get_categories(
 					&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php bloginfo( 'name' ); ?>.
 					<?php esc_html_e( 'Semua hak cipta dilindungi.', 'lazymedia' ); ?>
 				</p>
-				<p class="lm-footer__meta"><?php esc_html_e( 'Desain dan pengembangan oleh tim redaksi Lazy Media.', 'lazymedia' ); ?></p>
+				<p class="lm-footer__meta"><?php echo esc_html( sprintf( __( 'Desain dan pengembangan oleh tim redaksi %s.', 'lazymedia' ), get_bloginfo( 'name' ) ) ); ?></p>
 			</div>
 		</div>
 	</footer>

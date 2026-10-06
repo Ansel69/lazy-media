@@ -1,8 +1,11 @@
-# Lazy Media
+# Ark Media
 
 Situs media Indonesia berbasis WordPress, terinspirasi *The Lazy Monday*. Desain
-merupakan homage visual: logo, teks, foto, dan artikel semuanya milik Lazy Media
+merupakan homage visual: logo, teks, foto, dan artikel semuanya milik Ark Media
 sendiri.
+
+Panduan menulis/menerbitkan artikel dan langkah monetisasi AdSense ada di
+[`docs/panduan.md`](docs/panduan.md).
 
 WordPress hanya dipakai sebagai **editor**. Yang dipublikasikan adalah hasil
 ekspor static di `dist/`, disajikan oleh Vercel tanpa build step.
@@ -84,7 +87,7 @@ docker compose run --rm --entrypoint sh wpcli /seed/lint.sh
 | --- | --- |
 | `seed/seed-structure.php` | 19 kategori, 6 tag, menu utama bertingkat, menu footer |
 | `seed/seed-posts.php` | 21 artikel demo, featured image, 2 artikel video |
-| `seed/cleanup.php` | hapus konten default, buat halaman About & Contact |
+| `seed/cleanup.php` | hapus konten default, buat halaman About, Contact & Privacy Policy |
 | `seed/seed-photos.php` | unduh 21 foto Openverse + metadata lisensi |
 | `seed/optimize-photos.php` | perkecil original ke maksimal 2000px, quality 82 |
 | `seed/export.php` | tulis static export ke `dist/` |
@@ -100,6 +103,12 @@ Ekspor berhenti dengan exit code non-zero bila ada route atau asset yang gagal.
 
 ```powershell
 .\scripts\export.ps1
+```
+
+Untuk menerbitkan perubahan sekaligus (export + QA + commit + push):
+
+```powershell
+.\scripts\publish.ps1 -Message "Tambah artikel X"
 ```
 
 Bisa juga langkah per langkah:
@@ -191,6 +200,9 @@ theme/lazymedia/         # tema — semua file ini di-commit
   inc/nav-walker.php     # dropdown menu navigasi
   inc/photo-credit.php   # kredit lisensi foto
   inc/assets.php         # favicon, cleanup head, matikan speculation rules
+  inc/seo.php            # meta description, canonical, Open Graph, JSON-LD
+  inc/toc.php            # daftar isi artikel
+  inc/adsense.php        # skrip Google AdSense + sumber ads.txt
   template-parts/        # home/, archive/, cards/
   assets/css/            # fonts, components, home, single, archive, page
   assets/js/             # lazymedia.js, search.js

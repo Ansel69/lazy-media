@@ -786,6 +786,10 @@ lm_export_write(
 	"User-agent: *\nAllow: /\n\nSitemap: " . lm_export_absolute( '/sitemap.xml' ) . "\n"
 );
 
+// ads.txt comes from the same constant the <head> snippet uses, so the two
+// can never disagree about the publisher id.
+lm_export_write( 'ads.txt', lm_adsense_ads_txt() . "\n" );
+
 echo 'export: ' . $written . ' pages, ' . count( $assets ) . ' assets, ' . count( $index ) . " search entries\n";
 
 if ( $failures ) {

@@ -313,7 +313,7 @@ function lazymedia_seo_head() {
 
 	$site = get_bloginfo( 'name' );
 
-	echo "\n<!-- Lazy Media SEO -->\n";
+	echo "\n<!-- Ark Media SEO -->\n";
 	lazymedia_seo_meta( 'name', 'description', $seo['description'] );
 	printf( '<link rel="canonical" href="%s">' . "\n", esc_url( $seo['url'] ) );
 

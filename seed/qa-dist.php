@@ -235,7 +235,7 @@ foreach ( $files as $file ) {
 }
 
 // An empty export that passes the loop above would still be a broken site.
-foreach ( array( 'index.html', '404.html', 'search/index.html', 'search-index.json', 'sitemap.xml', 'robots.txt' ) as $required ) {
+foreach ( array( 'index.html', '404.html', 'search/index.html', 'search-index.json', 'sitemap.xml', 'robots.txt', 'ads.txt' ) as $required ) {
 	if ( ! file_exists( LM_DIST_ROOT . '/' . $required ) ) {
 		lm_dist_fail( $required . ' is missing from dist/' );
 	}

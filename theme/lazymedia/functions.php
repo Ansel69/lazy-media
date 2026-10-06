@@ -1,6 +1,6 @@
 <?php
 /**
- * Lazy Media theme setup.
+ * Ark Media theme setup.
  *
  * @package LazyMedia
  */
@@ -220,3 +220,4 @@ require_once get_template_directory() . '/inc/nav-walker.php';
 require_once get_template_directory() . '/inc/blocks.php';
 require_once get_template_directory() . '/inc/seo.php';
 require_once get_template_directory() . '/inc/toc.php';
+require_once get_template_directory() . '/inc/adsense.php';

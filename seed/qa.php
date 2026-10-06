@@ -1,6 +1,6 @@
 <?php
 /**
- * Regression suite for Lazy Media.
+ * Regression suite for Ark Media.
  *
  * Asserts the design tokens, the rendered blocks and every route reachable
  * from the homepage, then checks that the static export is complete.
