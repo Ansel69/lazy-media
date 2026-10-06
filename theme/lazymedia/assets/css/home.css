@@ -1,0 +1,128 @@
+/*
+ * Homepage: the hero slider and its block rhythm.
+ */
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.lm-block--hero {
+	margin-top: clamp(1.5rem, 0.5rem + 2vw, 2.5rem);
+}
+
+.lm-hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
+	gap: var(--lm-gap);
+	align-items: start;
+}
+
+.lm-hero__main {
+	position: relative;
+	min-width: 0;
+}
+
+.lm-hero__track {
+	display: grid;
+}
+
+.lm-hero__slide {
+	grid-area: 1 / 1;
+	min-width: 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(1.015);
+	transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s ease;
+}
+
+.lm-hero__slide.is-active {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+}
+
+.lm-hero__slide .lm-card--feature {
+	min-height: clamp(340px, 26vw, 520px);
+}
+
+.lm-hero__dots {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.lm-hero__dot {
+	width: 28px;
+	height: 4px;
+	border-radius: var(--lm-radius-pill);
+	background: var(--lm-border);
+	transition: background-color 0.2s ease, width 0.2s ease;
+}
+
+.lm-hero__dot:hover {
+	background: var(--lm-muted);
+}
+
+.lm-hero__dot.is-active {
+	width: 44px;
+	background: var(--lm-section-accent, var(--lm-accent));
+}
+
+.lm-hero__rail {
+	display: grid;
+	gap: 0.5rem;
+	padding: 0.25rem;
+	border: 1px solid var(--lm-border);
+	border-radius: var(--lm-radius);
+	background: var(--lm-bg-elevated);
+}
+
+.lm-hero__rail .lm-card--compact {
+	padding: 0.5rem;
+}
+
+.lm-hero__rail .lm-card--compact + .lm-card--compact {
+	border-top: 1px solid var(--lm-border);
+	border-radius: 0;
+}
+
+.lm-hero__rail .lm-card--compact:hover {
+	transform: none;
+}
+
+/* ==========================================================================
+   Block spacing
+   ========================================================================== */
+
+.lm-block--new {
+	padding-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+	.lm-hero {
+		grid-template-columns: 1fr;
+	}
+
+	.lm-hero__rail {
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	}
+
+	.lm-hero__rail .lm-card--compact + .lm-card--compact {
+		border-top: 0;
+		border-radius: var(--lm-radius);
+	}
+}
+
+@media (max-width: 640px) {
+	.lm-hero__slide .lm-card--feature {
+		min-height: 300px;
+	}
+
+	.lm-hero__rail {
+		grid-template-columns: 1fr;
+	}
+}

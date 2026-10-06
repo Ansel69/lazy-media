@@ -1,0 +1,22 @@
+# Secrets — never committed.
+.env
+*.sql
+backup.sql
+
+# WordPress core, installed by the docker image and mounted at runtime.
+# Our own theme lives in theme/, which is tracked.
+public/
+
+# Database volume and container logs.
+db_data/
+*.log
+
+# Build artifacts. dist/ IS tracked: Vercel serves it directly with no build step.
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Editors and IDEs.
+.vscode/
+.idea/
+*.swp

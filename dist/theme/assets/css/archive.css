@@ -1,0 +1,80 @@
+/*
+ * Archive and search listings: the tinted hero band above the grid.
+ */
+
+.lm-archive-hero {
+	position: relative;
+	padding-block: clamp(2rem, 1rem + 4vw, 3.5rem);
+	background:
+		linear-gradient(180deg, rgba(251, 173, 24, 0.06) 0%, rgba(15, 15, 15, 0) 100%),
+		var(--lm-bg);
+	border-bottom: 1px solid var(--lm-border);
+	overflow: hidden;
+}
+
+.lm-archive-hero::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 160px;
+	height: 3px;
+	background: var(--lm-section-accent, var(--lm-accent));
+	box-shadow: 0 0 14px var(--lm-section-accent, var(--lm-accent));
+}
+
+.lm-archive-hero__title {
+	margin: 0;
+	font-size: clamp(1.6rem, 1.1rem + 2.4vw, 2.75rem);
+	font-weight: 700;
+	letter-spacing: -0.025em;
+}
+
+.lm-archive-hero__blurb {
+	margin-top: 0.85rem;
+	max-width: 68ch;
+	color: var(--lm-muted);
+}
+
+.lm-archive-hero__blurb p {
+	margin-bottom: 0.75rem;
+}
+
+.lm-archive-hero__count {
+	margin: 0.85rem 0 0;
+	color: var(--lm-faint);
+	font-size: var(--lm-fs-sm);
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+/* Search hero */
+
+.lm-search-form-lg {
+	margin-top: 1.25rem;
+	max-width: 560px;
+}
+
+.lm-search-form-lg .lm-searchform__row {
+	padding: 0.55rem 0.6rem 0.55rem 1rem;
+}
+
+.lm-search-form-lg .lm-searchform__input {
+	min-height: 34px;
+	font-size: var(--lm-fs-md);
+}
+
+.lm-search-form-lg .lm-searchform__submit {
+	padding: 0.55rem 1.4rem;
+	font-size: var(--lm-fs-sm);
+}
+
+.lm-archive-hero--search .lm-archive-hero__count {
+	min-height: 1.4em;
+}
+
+/* Grid offset under the hero band */
+
+.lm-archive-hero + .lm-container {
+	padding-block: clamp(1.75rem, 3vw, 2.5rem) 0;
+}
