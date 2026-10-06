@@ -7,8 +7,8 @@
 	"trailingSlash": true,
 	"rewrites": [
 		{
-			"source": "/search/:term*",
-			"destination": "/search/index.html"
+			"source": "/search/(.*)",
+			"destination": "/search/"
 		}
 	],
 	"headers": [

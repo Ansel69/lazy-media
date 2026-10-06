@@ -132,12 +132,17 @@ uploads. `dist/` **di-commit** karena Vercel menyajikannya apa adanya.
 1. Set origin produksi di `.env` lalu ekspor ulang:
 
    ```powershell
-   # LM_PUBLIC_URL=https://<domain>.vercel.app
+   # LM_PUBLIC_URL=https://lazy-media-five.vercel.app
    .\scripts\export.ps1
    ```
 
    `LM_PUBLIC_URL` dipakai untuk canonical, Open Graph, JSON-LD, dan sitemap.
    Dikosongkan agar URL jadi root-relative.
+
+   > Domain asli `lazy-media.vercel.app` sudah dipakai akun lain, jadi project
+   > ini memperoleh alias `lazy-media-five.vercel.app`. Kalau alias berubah
+   > (misal setelah ganti nama project), **wajib** ganti `LM_PUBLIC_URL` dan
+   > ekspor ulang — kalau tidak, canonical/OG/sitemap menunjuk domain lama.
 
 2. Login dan deploy (interaktif, sekali saja):
 
@@ -147,13 +152,19 @@ uploads. `dist/` **di-commit** karena Vercel menyajikannya apa adanya.
    npx vercel deploy --prod --yes
    ```
 
+   Login tersimpan di `~/.vercel/auth.json`. Setelah itu deploy cukup
+   `npx vercel deploy --prod --yes`.
+
 3. Validasi setelah deploy:
 
    ```powershell
    foreach ($p in '/','/about/','/category/games/','/search/gpu/','/sitemap.xml') {
-     "$p -> " + (Invoke-WebRequest -Uri "https://<domain>.vercel.app$p" -UseBasicParsing).StatusCode
+     "$p -> " + (Invoke-WebRequest -Uri "https://lazy-media-five.vercel.app$p" -UseBasicParsing).StatusCode
    }
    ```
+
+   Yang harus terbaca: `200`, `200`, `200`, `200`, `200`. `/search/gpu/`
+   lolos berkat rewrite di `vercel.json` — tanpa itu ia 404.
 
 ## Foto dan lisensi
 
@@ -209,6 +220,10 @@ Dirender dari `front-page.php` lewat query di `inc/query.php`:
 Static export tidak punya PHP, jadi pencarian berjalan di browser:
 `assets/js/search.js` membaca `search-index.json` yang ditulis saat ekspor.
 Rute `/search/<term>/` sama-sama 200 lewat rewrite di `vercel.json`.
+
+Catatan rewrite: `destination` harus berupa direktori (`/search/`), **bukan**
+`/search/index.html`. `cleanUrls: true` mengarahkan permintaan yang berisi
+`.html` dengan status 308, sehingga rewrite yang menunjuk `.html` berujung 404.
 
 ## Catatan
 

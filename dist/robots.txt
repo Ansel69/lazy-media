@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lazy-media.vercel.app/sitemap.xml
+Sitemap: https://lazy-media-five.vercel.app/sitemap.xml
