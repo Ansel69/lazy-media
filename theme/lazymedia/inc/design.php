@@ -119,22 +119,22 @@ function lazymedia_social_links() {
 		array(
 			'label'  => 'Instagram',
 			'handle' => '@lazymedia',
-			'url'    => 'https://instagram.com/',
+			'url'    => 'https://instagram.com/lazymedia',
 		),
 		array(
 			'label'  => 'YouTube',
-			'handle' => 'Lazy Media',
-			'url'    => 'https://youtube.com/',
+			'handle' => '@lazymedia',
+			'url'    => 'https://youtube.com/@lazymedia',
 		),
 		array(
 			'label'  => 'X',
 			'handle' => '@lazymedia',
-			'url'    => 'https://x.com/',
+			'url'    => 'https://x.com/lazymedia',
 		),
 		array(
 			'label'  => 'TikTok',
 			'handle' => '@lazymedia',
-			'url'    => 'https://tiktok.com/',
+			'url'    => 'https://tiktok.com/@lazymedia',
 		),
 	);
 

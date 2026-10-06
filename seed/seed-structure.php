@@ -154,8 +154,8 @@ function lm_seed_menu( $name, $slug, $items, $location ) {
 			$menu_id,
 			0,
 			array(
-				'menu-item-title'     => $item[1],
-				'menu-item-url'       => $item[2],
+				'menu-item-title'     => $item[2],
+				'menu-item-url'       => $item[1],
 				'menu-item-type'      => 'custom',
 				'menu-item-status'    => 'publish',
 				'menu-item-position'  => $order,
